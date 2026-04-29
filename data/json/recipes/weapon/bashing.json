@@ -239,7 +239,7 @@
         "name": "Carving striking head and handle",
         "time": "1 h 10 m",
         "activity_level": "MODERATE_EXERCISE",
-        "qualities": [ { "id": "CUT", "level": 2 } , { "id": "SAW_W", "level": 1 } ],
+        "qualities": [ { "id": "CUT", "level": 2 }, { "id": "SAW_W", "level": 1 } ],
         "proficiencies": [ { "proficiency": "prof_carving" } ]
       },
       {
