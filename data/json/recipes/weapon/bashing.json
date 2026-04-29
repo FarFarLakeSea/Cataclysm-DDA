@@ -1,18 +1,30 @@
 [
   {
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "result": "bat",
     "byproducts": [ [ "splinter", 30 ] ],
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "difficulty": 4,
-    "time": "3 h",
     "autolearn": true,
-    "qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 }, { "id": "FILE", "level": 1 } ],
-    "proficiencies": [ { "proficiency": "prof_carving", "time_multiplier": 2 } ],
-    "components": [ [ [ "wooden_post", 1 ] ] ]
+    "components": [ [ [ "wooden_post", 1 ] ] ],
+    "steps": [
+      {
+        "name": "Sawing rough shape",
+        "time": "30 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 } ],
+        "proficiencies": [ { "proficiency": "prof_carving", "time_multiplier": 2 } ]
+      },
+      {
+        "name": "Filing final shape",
+        "time": "2 h",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "FILE", "level": 1 } ],
+        "proficiencies": [ { "proficiency": "prof_carving", "time_multiplier": 2 } ]
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -34,134 +46,261 @@
   {
     "result": "hollow_cane",
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "difficulty": 4,
-    "time": "40 m",
     "autolearn": true,
     "using": [ [ "adhesive", 1 ] ],
-    "proficiencies": [ { "proficiency": "prof_carving" }, { "proficiency": "prof_carpentry_basic" } ],
-    "qualities": [ { "id": "HAMMER", "level": 1 }, { "id": "CUT", "level": 2 } ],
-    "components": [ [ [ "2x4", 1 ] ], [ [ "nails", 5, "LIST" ] ] ]
+    "components": [ [ [ "2x4", 1 ] ], [ [ "nails", 5, "LIST" ] ] ],
+    "steps": [
+      {
+        "name": "Sawing rough shape",
+        "time": "20 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 } ],
+        "proficiencies": [ { "proficiency": "prof_carving", "time_multiplier": 2 } ]
+      },
+      {
+        "name": "Filing final shape",
+        "time": "10 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "FILE", "level": 2 } ],
+        "proficiencies": [ { "proficiency": "prof_carving", "time_multiplier": 2 } ]
+      },
+      {
+        "name": "Assembling",
+        "time": "10 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "HAMMER", "level": 1 } ]
+      }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "result": "shillelagh",
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "skills_required": [ "survival", 2 ],
     "difficulty": 3,
-    "time": "360 m",
     "autolearn": true,
     "using": [ [ "wood_sealant_any", 1 ] ],
-    "qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 } ],
-    "proficiencies": [ { "proficiency": "prof_carving" } ],
-    "tools": [ [ [ "char_smoker", 100 ] ] ],
-    "components": [ [ [ "log", 1 ] ] ]
+    "components": [ [ [ "log", 1 ] ] ],
+    "steps": [
+      {
+        "name": "Sawing to length",
+        "time": "20 m",
+        "activity_level": "MODERATE_EXERCISE",
+        "qualities": [ { "id": "SAW_W", "level": 1 } ]
+      },
+      {
+        "name": "Carving shaft and head",
+        "time": "1 h",
+        "activity_level": "MODERATE_EXERCISE",
+        "qualities": [ { "id": "CUT", "level": 2 } ],
+        "proficiencies": [ { "proficiency": "prof_carving", "time_multiplier": 1.5 } ]
+      },
+      { "name": "Smoke-curing wood", "time": "4 h", "activity_level": "NO_EXERCISE" },
+      { "name": "Applying sealant", "time": "30 m", "activity_level": "NO_EXERCISE" }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "MODERATE_EXERCISE",
     "result": "shillelagh_weighted",
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "difficulty": 4,
-    "time": "30 m",
     "autolearn": true,
-    "qualities": [ { "id": "DRILL", "level": 1 } ],
     "using": [ [ "forging_standard", 5 ] ],
-    "proficiencies": [ { "proficiency": "prof_metalworking", "time_multiplier": 2 } ],
-    "tools": [ [ [ "crucible", -1 ], [ "crucible_clay", -1 ] ] ],
-    "components": [ [ [ "shillelagh", 1 ] ], [ [ "weights", 15, "LIST" ] ] ]
+    "components": [ [ [ "shillelagh", 1 ] ], [ [ "weights", 15, "LIST" ] ] ],
+    "steps": [
+      {
+        "name": "Drilling core cavity",
+        "time": "10 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "DRILL", "level": 1 } ]
+      },
+      {
+        "name": "Melting and pouring metal",
+        "time": "1 h 20 m",
+        "activity_level": "MODERATE_EXERCISE",
+        "tools": [ [ [ "crucible", -1 ], [ "crucible_clay", -1 ] ] ],
+        "proficiencies": [ { "proficiency": "prof_metalworking", "time_multiplier": 2 } ]
+      }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "result": "blackjack",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "skill_used": "fabrication",
     "difficulty": 2,
     "skills_required": [ "survival", 1 ],
-    "time": "60 m",
     "autolearn": true,
-    "qualities": [ { "id": "HAMMER", "level": 1 } ],
     "using": [ [ "sewing_standard", 10 ] ],
-    "proficiencies": [ { "proficiency": "prof_leatherworking_basic", "time_multiplier": 2 } ],
-    "components": [ [ [ "leather", 5 ] ], [ [ "spring", 1 ] ], [ [ "weights", 10, "LIST" ] ] ]
+    "components": [ [ [ "leather", 5 ] ], [ [ "spring", 1 ] ], [ [ "weights", 10, "LIST" ] ] ],
+    "steps": [
+      {
+        "name": "Cutting and preparing leather",
+        "time": "15 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "using": [ [ "sewing_standard", 10 ] ],
+        "proficiencies": [ { "proficiency": "prof_leatherworking_basic" } ]
+      },
+      {
+        "name": "Assembling core and weights",
+        "time": "20 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "HAMMER", "level": 1 } ]
+      },
+      {
+        "name": "Sewing leather casing",
+        "time": "30 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "using": [ [ "sewing_tool", 10 ] ],
+        "proficiencies": [ { "proficiency": "prof_leatherworking_basic", "time_multiplier": 2 } ]
+      }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "result": "makeshift_sap",
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "survival",
-    "time": "10 m",
     "autolearn": true,
-    "qualities": [ { "id": "HAMMER", "level": 1 } ],
     "using": [ [ "sewing_standard", 10 ] ],
-    "proficiencies": [ { "proficiency": "prof_leatherworking_basic", "time_multiplier": 2 } ],
-    "components": [ [ [ "leather", 2 ] ], [ [ "steel_chunk_any", 1, "LIST" ], [ "weights", 8, "LIST" ] ] ]
+    "components": [ [ [ "leather", 2 ] ], [ [ "steel_chunk_any", 1, "LIST" ], [ "weights", 8, "LIST" ] ] ],
+    "steps": [
+      {
+        "name": "Packing weight and rough shaping",
+        "time": "10 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "HAMMER", "level": 1 } ]
+      },
+      {
+        "name": "Sewing leather binding",
+        "time": "10 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "using": [ [ "sewing_tool", 10 ] ],
+        "proficiencies": [ { "proficiency": "prof_leatherworking_basic", "time_multiplier": 2 } ]
+      }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "result": "shock_staff",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "skill_used": "fabrication",
     "skills_required": [ "electronics", 3 ],
     "difficulty": 3,
-    "time": "6 h",
     "reversible": true,
     "book_learn": [ [ "textbook_electronics", 3 ], [ "advanced_electronics", 3 ], [ "recipe_melee", 4 ] ],
     "using": [ [ "soldering_standard", 10 ] ],
-    "proficiencies": [ { "proficiency": "prof_elec_soldering", "skill_penalty": 0.5 }, { "proficiency": "prof_shock_weapons" } ],
-    "qualities": [ { "id": "SCREW", "level": 1 } ],
-    "components": [ [ [ "i_staff", 1 ] ], [ [ "tazer", 1 ] ], [ [ "cable", 10 ] ] ]
+    "components": [ [ [ "i_staff", 1 ] ], [ [ "tazer", 1 ] ], [ [ "cable", 10 ] ] ],
+    "steps": [
+      {
+        "name": "Preparing staff and mounting electronics",
+        "time": "1 h",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "SCREW", "level": 1 } ]
+      },
+      {
+        "name": "Routing and stripping cables",
+        "time": "2 h 10 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "proficiencies": [ { "proficiency": "prof_shock_weapons" } ]
+      },
+      {
+        "name": "Soldering connections and reinforcing structure",
+        "time": "2 h 30 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "using": [ [ "soldering_standard", 10 ] ],
+        "proficiencies": [ { "proficiency": "prof_elec_soldering", "skill_penalty": 0.5 }, { "proficiency": "prof_shock_weapons" } ]
+      }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "LIGHT_EXERCISE",
     "result": "2h_flail_wood",
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "skills_required": [ "bashing", 2 ],
     "difficulty": 3,
-    "time": "3 h",
     "autolearn": true,
-    "qualities": [ { "id": "CUT", "level": 2 } ],
-    "proficiencies": [ { "proficiency": "prof_carving" }, { "proficiency": "prof_leatherworking_basic", "skill_penalty": 0 } ],
-    "components": [ [ [ "2x4", 1 ], [ "stick_long", 1 ] ], [ [ "leather", 5 ] ] ]
+    "components": [ [ [ "2x4", 1 ], [ "stick_long", 1 ] ], [ [ "leather", 5 ] ] ],
+    "steps": [
+      {
+        "name": "Carving striking head and handle",
+        "time": "1 h 10 m",
+        "activity_level": "MODERATE_EXERCISE",
+        "qualities": [ { "id": "CUT", "level": 2 } , { "id": "SAW_W", "level": 1 } ],
+        "proficiencies": [ { "proficiency": "prof_carving" } ]
+      },
+      {
+        "name": "Cutting and preparing leather cord",
+        "time": "30 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "CUT", "level": 1 } ],
+        "proficiencies": [ { "proficiency": "prof_leatherworking_basic", "skill_penalty": 0 } ]
+      },
+      {
+        "name": "Assembling and binding",
+        "time": "1 h",
+        "activity_level": "LIGHT_EXERCISE",
+        "using": [ [ "sewing_standard", 10 ] ]
+      }
+    ]
   },
   {
     "type": "recipe",
-    "activity_level": "BRISK_EXERCISE",
     "result": "2h_flail_steel",
     "category": "CC_WEAPON",
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "difficulty": 7,
-    "time": "7 h",
     "book_learn": [ [ "textbook_weapwest", 6 ] ],
-    "using": [ [ "blacksmithing_standard", 12 ], [ "steel_standard", 3 ] ],
-    "qualities": [ { "id": "GRIND", "level": 2 } ],
-    "proficiencies": [
-      { "proficiency": "prof_metalworking" },
-      { "proficiency": "prof_blacksmithing" },
-      { "proficiency": "prof_toolsmithing" },
-      { "proficiency": "prof_carving", "skill_penalty": 0 },
-      { "proficiency": "prof_leatherworking_basic", "skill_penalty": 0 }
-    ],
-    "tools": [ [ [ "swage", -1 ] ] ],
-    "components": [ [ [ "stick_long", 1 ] ], [ [ "fur", 2 ], [ "leather", 2 ] ] ]
+    "using": [ [ "blacksmithing_standard", 12 ], [ "mc_steel_standard", 3 ] ],
+    "components": [ [ [ "stick_long", 1 ] ], [ [ "fur", 2 ], [ "leather", 2 ] ] ],
+    "steps": [
+      {
+        "name": "Forging chain links and steel head",
+        "time": "3 h",
+        "activity_level": "BRISK_EXERCISE",
+        "tools": [ [ [ "swage", -1 ] ] ],
+        "qualities": [ { "id": "HAMMER", "level": 3 } ],
+        "proficiencies": [ { "proficiency": "prof_metalworking" }, { "proficiency": "prof_blacksmithing" } ]
+      },
+      {
+        "name": "Shaping and normalizing head",
+        "time": "2 h 20 m",
+        "activity_level": "MODERATE_EXERCISE",
+        "qualities": [ { "id": "HAMMER", "level": 3 }, { "id": "GRIND", "level": 2 } ],
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_toolsmithing" } ]
+      },
+      {
+        "name": "Final shaping and filing",
+        "time": "3 h",
+        "activity_level": "BRISK_EXERCISE",
+        "qualities": [ { "id": "FILE", "level": 2 } ]
+      },
+      {
+        "name": "Preparing handle and leather wrapping",
+        "time": "25 m",
+        "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "CUT", "level": 2 }, { "id": "FILE", "level": 1 } ],
+        "proficiencies": [
+          { "proficiency": "prof_carving", "skill_penalty": 0 },
+          { "proficiency": "prof_leatherworking_basic", "skill_penalty": 0 }
+        ]
+      },
+      { "name": "Final assembly", "time": "10 m", "activity_level": "NO_EXERCISE" }
+    ]
   },
   {
     "type": "recipe",
