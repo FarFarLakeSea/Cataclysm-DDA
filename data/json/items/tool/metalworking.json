@@ -400,7 +400,7 @@
     "type": "ITEM",
     "subtypes": [ "TOOL" ],
     "name": { "str": "punch & drift set" },
-    "description": "A set of hardened spiky metal pins used to make holes in hot metal.  The punch is used to create the initial hole, and the drift is used to then enlarge and shape it. Come in various shapes and sizes for different applications, from tapering to delicate socketing.",
+    "description": "A set of hardened spiky metal pins used to make holes in hot metal.  The punch is used to create the initial hole, and the drift is used to then enlarge and shape it. This set includes various shapes and sizes for different applications, from tapering to delicate socketing.",
     "weight": "4000 g",
     "volume": "750 ml",
     "longest_side": "40 cm",
