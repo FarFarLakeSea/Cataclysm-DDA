@@ -66,7 +66,7 @@
     "material": [ "steel", "plastic" ],
     "symbol": "/",
     "color": "yellow",
-    "charged_qualities": [ [ "GRIND", 2 ], [ "SAW_M", 10 ] ],
+    "charged_qualities": [ { "id": "GRIND", "level": 2, "speed": 0.6 }, { "id": "SAW_M", "level": 10, "speed": 0.3 } ],
     "charges_per_use": 1,
     "power_draw": "800 W",
     "flags": [ "NONCONDUCTIVE", "WATER_BREAK" ],

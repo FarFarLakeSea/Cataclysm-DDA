@@ -318,7 +318,7 @@
     "symbol": ",",
     "color": "light_gray",
     "ammo_type": "components",
-    "qualities": [ [ "HAMMER", 1 ] ],
+    "qualities": [ [ "HAMMER", 1 ], ["TEMPERING", 1 ] ],
     "melee_damage": { "bash": 8 }
   },
   {
@@ -341,7 +341,7 @@
     "symbol": ",",
     "color": "light_gray",
     "ammo_type": "components",
-    "qualities": [ [ "HAMMER", 1 ] ],
+    "qualities": [ [ "HAMMER", 1 ], [ "TEMPERING", 1 ] ],
     "melee_damage": { "bash": 12 }
   },
   {
