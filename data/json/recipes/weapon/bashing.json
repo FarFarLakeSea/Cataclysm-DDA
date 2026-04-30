@@ -857,7 +857,7 @@
     "book_learn": [ [ "textbook_mesoam", 6 ] ],
     "using": [ [ "blacksmithing_standard", 6 ], [ "mc_steel_standard", 3 ], [ "wood_sealant_any", 2 ] ],
     "components": [ [ [ "2x4", 2 ] ], [ [ "leather", 3 ], [ "scrap_kevlar", 3 ] ] ],
-        "steps": [
+    "steps": [
       {
         "name": "Roughly shaping the body",
         "time": "1 h 50 m",
@@ -960,7 +960,7 @@
       { "id": "FILE", "level": 1 }
     ],
     "components": [ [ [ "2x4", 2 ] ], [ [ "leather", 3 ], [ "scrap_kevlar", 3 ] ] ],
-            "steps": [
+    "steps": [
       {
         "name": "Roughly shaping the body",
         "time": "1 h 50 m",
@@ -1008,11 +1008,7 @@
         "using": [ [ "metal_tank", -1 ], [ "water", -120 ], [ "water_clean", -120 ] ],
         "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
       },
-      {
-        "name": "Tempering",
-        "time": "4 h",
-        "activity_level": "LIGHT_EXERCISE"
-      },
+      { "name": "Tempering", "time": "4 h", "activity_level": "LIGHT_EXERCISE" },
       {
         "name": "Final shaping and honing steel",
         "time": "1 h",
