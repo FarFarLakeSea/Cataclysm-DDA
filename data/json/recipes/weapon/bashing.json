@@ -890,17 +890,8 @@
         "name": "Heating the steel teeth and edge quenching",
         "time": "2 h",
         "activity_level": "LIGHT_EXERCISE",
-        "tools": [
-          [ [ "metal_tank", -1 ] ],
-          [
-            [ "water", 120 ],
-            [ "water_clean", 120 ]
-          ]
-        ],
-        "proficiencies": [
-          { "proficiency": "prof_blacksmithing" },
-          { "proficiency": "prof_hardening" }
-        ]
+        "tools": [ [ [ "metal_tank", -1 ] ], [ [ "water", 120 ], [ "water_clean", 120 ] ] ],
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
       },
       {
         "name": "Waiting for spine to cool slightly. Softening edge slightly through residual heat and watching steel",
@@ -912,17 +903,8 @@
         "name": "Quenching spine of teeth carefully",
         "time": "1 h",
         "activity_level": "LIGHT_EXERCISE",
-        "tools": [
-          [ [ "metal_tank", -1 ] ],
-          [
-            [ "water", 120 ],
-            [ "water_clean", 120 ]
-          ]
-        ],
-        "proficiencies": [
-          { "proficiency": "prof_blacksmithing" },
-          { "proficiency": "prof_hardening" }
-        ]
+        "tools": [ [ [ "metal_tank", -1 ] ], [ [ "water", 120 ], [ "water_clean", 120 ] ] ],
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
       },
       {
         "name": "Final shaping and carefully honing hardened steel",
@@ -995,17 +977,8 @@
         "name": "Heating the steel and thorough hardening",
         "time": "1 h 20 m",
         "activity_level": "LIGHT_EXERCISE",
-        "tools": [
-          [ [ "metal_tank", -1 ] ],
-          [
-            [ "water", 120 ],
-            [ "water_clean", 120 ]
-          ]
-        ],
-        "proficiencies": [
-          { "proficiency": "prof_blacksmithing" },
-          { "proficiency": "prof_hardening" }
-        ]
+        "tools": [ [ [ "metal_tank", -1 ] ], [ [ "water", 120 ], [ "water_clean", 120 ] ] ],
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
       },
       { "name": "Tempering", "time": "4 h", "activity_level": "LIGHT_EXERCISE" },
       {
