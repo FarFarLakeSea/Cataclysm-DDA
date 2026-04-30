@@ -395,7 +395,7 @@
         "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmith" } ]
       },
       {
-        "name": "Forming hammer head. Hotcutting grooves in the head",
+        "name": "Forming hammer head.  Hotcutting grooves in the head",
         "time": "1 h 10 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
@@ -409,7 +409,7 @@
         "proficiencies": [ { "proficiency": "prof_blacksmithing" } ]
       },
       {
-        "name": "Forming top spike socket and drawing out spike and langlets. Punching sockets",
+        "name": "Forming top spike socket and drawing out spike and langlets.  Punching sockets",
         "time": "1 h 20 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
@@ -425,7 +425,7 @@
       },
       { "name": "Normalizing the fused head", "time": "40 m", "activity_level": "NO_EXERCISE" },
       {
-        "name": "Rough grinding. Bevel shaping",
+        "name": "Rough grinding.  Bevel shaping",
         "time": "2 h 30 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "GRIND", "level": 2 }, { "id": "FILE", "level": 2 } ],
@@ -761,7 +761,7 @@
       },
       { "name": "Seating the teeth and applying resin sealant", "time": "30 m", "activity_level": "LIGHT_EXERCISE" },
       {
-        "name": "Fault correcting body. Wrapping the handle for grip",
+        "name": "Fault correcting body.  Wrapping the handle for grip",
         "time": "30 m",
         "activity_level": "NO_EXERCISE",
         "qualities": [ { "id": "FILE", "level": 2 } ]
@@ -828,7 +828,7 @@
       },
       { "name": "Seating the teeth and applying resin sealant", "time": "30 m", "activity_level": "LIGHT_EXERCISE" },
       {
-        "name": "Fault correcting body. Wrapping the handle for grip",
+        "name": "Fault correcting body.  Wrapping the handle for grip",
         "time": "30 m",
         "activity_level": "NO_EXERCISE",
         "qualities": [ { "id": "FILE", "level": 2 } ]
@@ -894,7 +894,7 @@
         "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
       },
       {
-        "name": "Waiting for spine to cool slightly. Softening edge slightly through residual heat and watching steel",
+        "name": "Waiting for spine to cool slightly.  Softening edge slightly through residual heat and watching steel color",
         "time": "35 m",
         "activity_level": "NO_EXERCISE",
         "proficiencies": [ { "proficiency": "prof_hardening" } ]
@@ -915,7 +915,7 @@
       },
       { "name": "Seating the teeth and applying resin sealant", "time": "30 m", "activity_level": "LIGHT_EXERCISE" },
       {
-        "name": "Fault correcting body. Wrapping the handle for grip",
+        "name": "Fault correcting body.  Wrapping the handle for grip",
         "time": "30 m",
         "activity_level": "NO_EXERCISE",
         "qualities": [ { "id": "FILE", "level": 2 } ]
@@ -990,7 +990,7 @@
       },
       { "name": "Seating the teeth and applying resin sealant", "time": "30 m", "activity_level": "LIGHT_EXERCISE" },
       {
-        "name": "Fault correcting body. Wrapping the handle for grip",
+        "name": "Fault correcting body.  Wrapping the handle for grip",
         "time": "30 m",
         "activity_level": "NO_EXERCISE",
         "qualities": [ { "id": "FILE", "level": 2 } ]
