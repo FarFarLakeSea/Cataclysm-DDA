@@ -324,7 +324,7 @@
         "name": "Melting scrap and forging studs",
         "time": "4 h",
         "activity_level": "BRISK_EXERCISE",
-        "using": [ [ "hotcut_any", 1, "LIST" ] ],
+        "using": [ [ "hotcut_any", 1 ] ],
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
         "proficiencies": [ { "proficiency": "prof_metalworking" }, { "proficiency": "prof_blacksmithing" } ]
       },
@@ -352,17 +352,9 @@
   },
   {
     "type": "recipe",
-    "activity_level": "MODERATE_EXERCISE",
     "result": "2h_club_kanabo_spiked",
     "copy-from": "2h_club_kanabo_studded",
     "book_learn": [ [ "textbook_weapeast", 2 ] ],
-    "qualities": [
-      { "id": "CUT", "level": 2 },
-      { "id": "SAW_W", "level": 2 },
-      { "id": "HAMMER", "level": 3 },
-      { "id": "DRILL", "level": 3 },
-      { "id": "FILE", "level": 2 }
-    ],
     "components": [ [ [ "log", 1 ] ], [ [ "scrap", 20 ] ], [ [ "fur", 2 ], [ "leather", 2 ] ] ]
   },
   {
@@ -372,7 +364,7 @@
     "subcategory": "CSC_WEAPON_BASHING",
     "skill_used": "fabrication",
     "using": [ [ "blacksmithing_standard", 12 ], [ "steel_standard", 3 ] ],
-    "components": [ [ [ "stick_long", 1 ] ], [ [ "fur", 2 ], [ "leather", 2 ] ], [ "nails", 5, "LIST" ] ],
+    "components": [ [ [ "stick_long", 1 ] ], [ [ "fur", 2 ], [ "leather", 2 ] ], [ [ "nail", 5 ] ] ],
     "steps": [
       {
         "name": "Heating steel and forge welding lumps for hammer head and beak",
@@ -386,7 +378,7 @@
         "time": "45 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
-        "using": [ [ "hotcut_any", 1, "LIST" ] ],
+        "using": [ [ "hotcut_any", 1 ] ],
         "proficiencies": [ { "proficiency": "prof_blacksmithing" } ]
       },
       {
@@ -400,7 +392,7 @@
         "time": "40 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmithing" } ]
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmith" } ]
       },
       {
         "name": "Forming hammer head. Hotcutting grooves in the head",
@@ -421,8 +413,8 @@
         "time": "1 h 20 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
-        "tools": [ [ "drift", -1 ], [ "hammer", -1 ] ],
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmithing" } ]
+        "tools": [ [ [ "drift", -1 ] ], [ [ "hammer", -1 ] ] ],
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmith" } ]
       },
       {
         "name": "Shrink fitting head to spike socket and forge welding them together",
@@ -437,7 +429,7 @@
         "time": "2 h 30 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "GRIND", "level": 2 }, { "id": "FILE", "level": 2 } ],
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmithing" } ]
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_bladesmith" } ]
       },
       {
         "name": "Final grind and polish",
@@ -686,7 +678,7 @@
         "name": "Hotcutting steel inserts",
         "time": "40 m",
         "activity_level": "BRISK_EXERCISE",
-        "using": [ [ "hotcut_any", 1, "LIST" ] ]
+        "using": [ [ "hotcut_any", 1 ] ]
       },
       {
         "name": "Filing steep bevels",
@@ -711,7 +703,6 @@
   },
   {
     "type": "recipe",
-    "activity_level": "ACTIVE_EXERCISE",
     "result": "mc_aztec_sword",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
@@ -719,7 +710,6 @@
     "difficulty": 6,
     "book_learn": [ [ "textbook_mesoam", 4 ] ],
     "using": [ [ "blacksmithing_standard", 6 ], [ "mc_steel_standard", 3 ], [ "wood_sealant_any", 2 ] ],
-    "tools": [ [ [ "hotcut_any", 1, "LIST" ] ] ],
     "components": [ [ [ "2x4", 2 ] ], [ [ "leather", 3 ], [ "fur", 3 ], [ "faux_fur", 3 ] ] ],
     "steps": [
       {
@@ -730,8 +720,8 @@
         "proficiencies": [ { "proficiency": "prof_carving" } ]
       },
       {
-        "name": "Chiseling channels for the steel inserts",
-        "time": "1 h 15 m",
+        "name": "Cutting channels for the steel inserts",
+        "time": "40 m",
         "activity_level": "MODERATE_EXERCISE",
         "qualities": [ { "id": "CUT", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_carving" } ]
@@ -747,7 +737,7 @@
         "name": "Hotcutting and shaping steel teeth",
         "time": "1 h",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "hotcut_any", 1, "LIST" ] ]
+        "using": [ [ "hotcut_any", 1 ] ]
       },
       {
         "name": "Rough grinding",
@@ -780,7 +770,6 @@
   },
   {
     "type": "recipe",
-    "activity_level": "ACTIVE_EXERCISE",
     "result": "hc_aztec_sword",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
@@ -801,7 +790,7 @@
         "name": "Chiseling channels for the steel inserts",
         "time": "1 h 15 m",
         "activity_level": "MODERATE_EXERCISE",
-        "qualities": [ { "id": "CUT", "level": 2 } ],
+        "qualities": [ { "id": "CUT", "level": 2 }, { "id": "CHISEL", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_carving" } ]
       },
       {
@@ -815,7 +804,7 @@
         "name": "Hotcutting and shaping steel teeth",
         "time": "1 h",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "hotcut_any", 1, "LIST" ] ]
+        "using": [ [ "hotcut_any", 1 ] ]
       },
       {
         "name": "Rough grinding",
@@ -848,7 +837,6 @@
   },
   {
     "type": "recipe",
-    "activity_level": "ACTIVE_EXERCISE",
     "result": "ch_aztec_sword",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
@@ -869,7 +857,7 @@
         "name": "Chiseling channels for the steel inserts",
         "time": "1 h 15 m",
         "activity_level": "MODERATE_EXERCISE",
-        "qualities": [ { "id": "CUT", "level": 2 } ],
+        "qualities": [ { "id": "CUT", "level": 2 }, { "id": "CHISEL", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_carving" } ]
       },
       {
@@ -883,7 +871,7 @@
         "name": "Hotcutting and shaping steel teeth",
         "time": "1 h",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "hotcut_any", 1, "LIST" ] ]
+        "using": [ [ "hotcut_any", 1 ] ]
       },
       {
         "name": "Rough grinding",
@@ -902,8 +890,17 @@
         "name": "Heating the steel teeth and edge quenching",
         "time": "2 h",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "metal_tank", -1 ], [ "water", -120 ], [ "water_clean", -120 ] ],
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
+        "tools": [
+          [ [ "metal_tank", -1 ] ],
+          [
+            [ "water", 120 ],
+            [ "water_clean", 120 ]
+          ]
+        ],
+        "proficiencies": [
+          { "proficiency": "prof_blacksmithing" },
+          { "proficiency": "prof_hardening" }
+        ]
       },
       {
         "name": "Waiting for spine to cool slightly. Softening edge slightly through residual heat and watching steel",
@@ -915,8 +912,17 @@
         "name": "Quenching spine of teeth carefully",
         "time": "1 h",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "metal_tank", -1 ], [ "water", -120 ], [ "water_clean", -120 ] ],
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
+        "tools": [
+          [ [ "metal_tank", -1 ] ],
+          [
+            [ "water", 120 ],
+            [ "water_clean", 120 ]
+          ]
+        ],
+        "proficiencies": [
+          { "proficiency": "prof_blacksmithing" },
+          { "proficiency": "prof_hardening" }
+        ]
       },
       {
         "name": "Final shaping and carefully honing hardened steel",
@@ -936,29 +942,13 @@
   },
   {
     "type": "recipe",
-    "activity_level": "ACTIVE_EXERCISE",
     "result": "qt_aztec_sword",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "skill_used": "fabrication",
     "difficulty": 8,
-    "time": "22 h",
     "book_learn": [ [ "textbook_mesoam", 6 ] ],
-    "proficiencies": [
-      { "proficiency": "prof_metalworking" },
-      { "proficiency": "prof_blacksmithing" },
-      { "proficiency": "prof_bladesmith" },
-      { "proficiency": "prof_carving" },
-      { "proficiency": "prof_tempering" }
-    ],
     "using": [ [ "blacksmithing_standard", 10 ], [ "mc_steel_standard", 3 ], [ "wood_sealant_any", 2 ] ],
-    "tools": [ [ [ "hotcut_any", 1, "LIST" ] ], [ [ "metal_tank", -1 ] ], [ [ "water", -120 ], [ "water_clean", -120 ] ] ],
-    "qualities": [
-      { "id": "CUT", "level": 2 },
-      { "id": "SAW_W", "level": 2 },
-      { "id": "GRIND", "level": 1 },
-      { "id": "FILE", "level": 1 }
-    ],
     "components": [ [ [ "2x4", 2 ] ], [ [ "leather", 3 ], [ "scrap_kevlar", 3 ] ] ],
     "steps": [
       {
@@ -972,7 +962,7 @@
         "name": "Chiseling channels for the steel inserts",
         "time": "1 h 15 m",
         "activity_level": "MODERATE_EXERCISE",
-        "qualities": [ { "id": "CUT", "level": 2 } ],
+        "qualities": [ { "id": "CUT", "level": 2 }, { "id": "CHISEL", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_carving" } ]
       },
       {
@@ -986,7 +976,7 @@
         "name": "Hotcutting and shaping steel teeth",
         "time": "1 h",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "hotcut_any", 1, "LIST" ] ]
+        "using": [ [ "hotcut_any", 1 ] ]
       },
       {
         "name": "Rough grinding",
@@ -1005,8 +995,17 @@
         "name": "Heating the steel and thorough hardening",
         "time": "1 h 20 m",
         "activity_level": "LIGHT_EXERCISE",
-        "using": [ [ "metal_tank", -1 ], [ "water", -120 ], [ "water_clean", -120 ] ],
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
+        "tools": [
+          [ [ "metal_tank", -1 ] ],
+          [
+            [ "water", 120 ],
+            [ "water_clean", 120 ]
+          ]
+        ],
+        "proficiencies": [
+          { "proficiency": "prof_blacksmithing" },
+          { "proficiency": "prof_hardening" }
+        ]
       },
       { "name": "Tempering", "time": "4 h", "activity_level": "LIGHT_EXERCISE" },
       {
