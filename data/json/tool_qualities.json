@@ -480,8 +480,8 @@
   },
   {
     "type": "tool_quality",
-    "id": "TEMPERING",
+    "id": "TEMPER",
     "//": "An item that can be used to temper metal with. Levels corresponds to size of metal that can be reasonably tempered",
-    "name": { "str": "tempering" }
+    "name": { "str": "TEMPER" }
   }
 ]

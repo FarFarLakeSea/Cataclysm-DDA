@@ -918,7 +918,7 @@
     "charges_per_use": 8,
     "//0": "above is for 1/2 kg of steel - currently a door is 7 kg of material to cut",
     "use_action": [ "OXYTORCH" ],
-    "charged_qualities": [ [ "WELD", 2 ] ],
+    "charged_qualities": [ { "id": "WELD", "level": 2 }, { "id": "TEMPER", "level": 1, "speed": 1.2 } ],
     "flags": [ "ALLOWS_REMOTE_USE" ],
     "pocket_data": [ { "pocket_type": "MAGAZINE_WELL", "item_restriction": [ "weldtank", "smallweldtank", "tinyweldtank" ] } ],
     "to_hit": { "grip": "solid", "length": "short", "surface": "any", "balance": "neutral" },

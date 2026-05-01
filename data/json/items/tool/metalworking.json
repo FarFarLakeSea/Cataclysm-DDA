@@ -634,5 +634,20 @@
     "flags": [ "ALLOWS_REMOTE_USE" ],
     "melee_damage": { "bash": 20 },
     "tool_ammo": [ "propane" ]
+  },
+  {
+    "id": "temper_block",
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "name": { "str": "tempering block set" },
+    "description": "Two square blocks of steel used for tempering metal via heating the blocks and sandwiching the metal between them.",
+    "weight": "2000 g",
+    "volume": "500 ml",
+    "price": "10 USD",
+    "price_postapoc": "2 USD",
+    "material": [ "mc_steel" ],
+    "color": "dark_gray",
+    "symbol": "B",
+    "qualities": [ { "id": "TEMPER", "level": 1, "speed": 1.2 } ]
   }
 ]
