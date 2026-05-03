@@ -2287,7 +2287,7 @@
     "byproducts": [ [ "water", 120 ] ],
     "steps": [
       {
-        "name": "Heating steel, forging the steel handle , and splitting end for the flanges",
+        "name": "Heating steel, forging the steel handle, and splitting end for the flanges",
         "time": "4 h",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 3 } ],
@@ -2324,7 +2324,7 @@
         "proficiencies": [ { "proficiency": "prof_blacksmithing" } ]
       },
       {
-        "name": "Carefully differentially hardening all flanges. Hardening handle.",
+        "name": "Carefully differentially hardening all flanges.  Hardening handle.",
         "time": "2 h",
         "activity_level": "NO_EXERCISE",
         "proficiencies": [ { "proficiency": "prof_hardening" } ]
