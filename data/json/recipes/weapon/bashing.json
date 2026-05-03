@@ -2360,10 +2360,10 @@
     "difficulty": 6,
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 5 ], [ "recipe_melee", 5 ], [ "textbook_weparabic", 5 ], [ "textbook_armschina", 5 ] ],
-    "using": [ [ "blacksmithing_standard", 12 ], [ "mc_steel_standard", 5 ], ["quench", 120 ] ],
+    "using": [ [ "blacksmithing_standard", 12 ], [ "mc_steel_standard", 5 ], [ "quench", 120 ] ],
     "components": [ [ [ "fur", 3 ], [ "leather", 3 ] ] ],
     "byproducts": [ [ "water", 120 ] ],
-        "steps": [
+    "steps": [
       {
         "name": "Heating steel, forging the steel handle, pommel and splitting end for the flanges.  Etching your touchmark into the handle",
         "time": "4 h",
@@ -2412,7 +2412,7 @@
         "time": "40 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "GRIND", "level": 2 } ],
-        "proficiencies": [ {"proficiency": "prof_blacksmithing" } ]
+        "proficiencies": [ { "proficiency": "prof_blacksmithing" } ]
       },
       {
         "name": "Tempering",
@@ -2609,11 +2609,7 @@
         "qualities": [ { "id": "CUT", "level": 2 }, { "id": "SAW_W", "level": 2 }, { "id": "FILE", "level": 1 } ],
         "proficiencies": [ { "proficiency": "prof_carving", "skill_penalty": 0.5 } ]
       },
-      {
-        "name": "Oiling staff.  Watching the proverbial paint dry",
-        "time": "4 h",
-        "activity_level": "NO_EXERCISE"
-      }
+      { "name": "Oiling staff.  Watching the proverbial paint dry", "time": "4 h", "activity_level": "NO_EXERCISE" }
     ]
   },
   {
@@ -2671,7 +2667,7 @@
       { "proficiency": "prof_blacksmithing" },
       { "proficiency": "prof_toolsmithing" }
     ],
-    "components": [ [ [ "bo", 1 ] ]]
+    "components": [ [ [ "bo", 1 ] ] ]
   },
   {
     "type": "recipe",
@@ -2684,7 +2680,7 @@
     "time": "24 m",
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 2 ], [ "recipe_melee", 3 ] ],
-    "using": [ [ "blacksmithing_standard", 3 ], [ "mc_steel_chunk", 3 ]  ],
+    "using": [ [ "blacksmithing_standard", 3 ], [ "mc_steel_chunk", 3 ] ],
     "proficiencies": [
       { "proficiency": "prof_metalworking" },
       { "proficiency": "prof_blacksmithing" },
@@ -2709,7 +2705,7 @@
       { "proficiency": "prof_blacksmithing" },
       { "proficiency": "prof_toolsmithing" }
     ],
-    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5] ] ]
+    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5 ] ] ]
   },
   {
     "type": "recipe",
@@ -2721,7 +2717,7 @@
     "difficulty": 4,
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 3 ], [ "recipe_melee", 4 ] ],
-    "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ], [ "quench", 120 ], ["wood_sealant", 1 ] ],
+    "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ], [ "quench", 120 ], [ "wood_sealant", 1 ] ],
     "components": [ [ [ "bo", 1 ] ] ],
     "byproducts": [ [ "water", 120 ] ],
     "steps": [
@@ -2769,10 +2765,10 @@
     "difficulty": 5,
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 4 ], [ "recipe_melee", 5 ] ],
-    "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ], ["quench", 120 ] ],
+    "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ], [ "quench", 120 ] ],
     "byproducts": [ [ "water", 120 ] ],
-    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5] ] ],
-        "steps": [
+    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5 ] ] ],
+    "steps": [
       {
         "name": "Drawing out steel and forging bands using drift as a mandrel",
         "time": "1 h 30 m",
