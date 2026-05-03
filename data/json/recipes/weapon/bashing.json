@@ -2558,7 +2558,7 @@
     "subcategory": "CSC_*_NESTED",
     "skill_used": "fabrication",
     "difficulty": 6,
-    "time": "4 h",
+    "time": "6 h",
     "book_learn": [ [ "textbook_weapwest", 5 ] ],
     "using": [ [ "blacksmithing_standard", 16 ], [ "steel_standard", 4 ] ],
     "proficiencies": [
@@ -2595,11 +2595,9 @@
     "skill_used": "fabrication",
     "difficulty": 2,
     "//": "Originator set difficulty to 5.  It's a carved, polished and oiled stick.  If you look at other recipes of that general difficulty, they're all way more difficult crafting.",
-    "time": "5 h",
     "//1": "TODO: adjust crafting time down by 4 hours when it's possible to separate the oiling time from the crafting time easily.",
     "autolearn": true,
     "using": [ [ "wood_sealant_any", 1 ] ],
-    "//2": "Max experience set because waiting for oil to soak in isn't really teaching you anything.  Remove this when crafting time reduced to only carving time.",
     "components": [ [ [ "stick_long", 1 ] ] ],
     "steps": [
       {
@@ -2661,13 +2659,13 @@
     "time": "20 m",
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 1 ], [ "recipe_melee", 2 ] ],
-    "using": [ [ "blacksmithing_standard", 3 ], [ "lc_steel_chunk", 3 ] ],
+    "using": [ [ "blacksmithing_standard", 3 ], [ "lc_steel_standard", 3 ] ],
     "proficiencies": [
       { "proficiency": "prof_metalworking" },
       { "proficiency": "prof_blacksmithing" },
       { "proficiency": "prof_toolsmithing" }
     ],
-    "components": [ [ [ "bo", 1 ] ] ]
+    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5 ] ] ]
   },
   {
     "type": "recipe",
@@ -2680,13 +2678,13 @@
     "time": "24 m",
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 2 ], [ "recipe_melee", 3 ] ],
-    "using": [ [ "blacksmithing_standard", 3 ], [ "mc_steel_chunk", 3 ] ],
+    "using": [ [ "blacksmithing_standard", 3 ], [ "mc_steel_standard", 3 ] ],
     "proficiencies": [
       { "proficiency": "prof_metalworking" },
       { "proficiency": "prof_blacksmithing" },
       { "proficiency": "prof_toolsmithing" }
     ],
-    "components": [ [ [ "bo", 1 ] ] ]
+    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5 ] ] ]
   },
   {
     "type": "recipe",
@@ -2709,7 +2707,6 @@
   },
   {
     "type": "recipe",
-    "activity_level": "MODERATE_EXERCISE",
     "result": "ch_steel_staff",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
@@ -2717,8 +2714,8 @@
     "difficulty": 4,
     "autolearn": true,
     "book_learn": [ [ "textbook_weapwest", 3 ], [ "recipe_melee", 4 ] ],
-    "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ], [ "quench", 120 ], [ "wood_sealant", 1 ] ],
-    "components": [ [ [ "bo", 1 ] ] ],
+    "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ], [ "quench", 120 ] ],
+    "components": [ [ [ "bo", 1 ] ], [ [ "glue_strong", 5 ] ] ],
     "byproducts": [ [ "water", 120 ] ],
     "steps": [
       {
@@ -2757,7 +2754,6 @@
   },
   {
     "type": "recipe",
-    "activity_level": "MODERATE_EXERCISE",
     "result": "qt_steel_staff",
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
