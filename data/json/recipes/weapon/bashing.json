@@ -1846,7 +1846,7 @@
       },
       {
         "name": "Punching and drifting the eye",
-        "time": "1 h",
+        "time": "1 h 30 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_toolsmithing" } ]
@@ -1930,7 +1930,7 @@
       },
       {
         "name": "Punching and drifting the eye",
-        "time": "1 h",
+        "time": "1 h 30 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_toolsmithing" } ]
@@ -2015,7 +2015,7 @@
       },
       {
         "name": "Punching and drifting the eye",
-        "time": "1 h",
+        "time": "1 h 35 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_toolsmithing" } ]
@@ -2118,8 +2118,8 @@
         "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_metalworking" } ]
       },
       {
-        "name": "Punching and drifting the eye",
-        "time": "1 h",
+        "name": "Carefully punching and drifting the eye",
+        "time": "2 h",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "HAMMER", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_toolsmithing" } ]
@@ -2145,19 +2145,13 @@
         "qualities": [ { "id": "HAMMER", "level": 3 }, { "id": "CHISEL", "level": 3 } ],
         "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_toolsmithing" } ]
       },
-      { "name": "Normalizing the hammer head", "time": "40 m", "activity_level": "NO_EXERCISE" },
+      { "name": "Normalizing the hammer head", "time": "50 m", "activity_level": "NO_EXERCISE" },
       {
         "name": "Rough grinding and shaping the spike and face",
         "time": "2 h 10 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "GRIND", "level": 2 }, { "id": "FILE", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_metalworking" } ]
-      },
-      {
-        "name": "Another normalization cycle before hardening",
-        "time": "40 m",
-        "activity_level": "NO_EXERCISE",
-        "proficiencies": [ { "proficiency": "prof_blacksmithing" }, { "proficiency": "prof_hardening" } ]
       },
       {
         "name": "Heating and thorough-hardening hammer head",
@@ -2167,14 +2161,14 @@
       },
       {
         "name": "Carefully grinding away forge scale to see temper colors while tempering",
-        "time": "40 m",
-        "activity_level": "BRISK_EXERCISE",
+        "time": "30 m",
+        "activity_level": "MODERATE_EXERCISE",
         "qualities": [ { "id": "GRIND", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_blacksmithing" } ]
       },
       {
         "name": "Tempering",
-        "time": "4 h",
+        "time": "4 h 30 m",
         "activity_level": "NO_EXERCISE",
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
