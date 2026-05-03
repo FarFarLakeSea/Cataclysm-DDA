@@ -651,6 +651,6 @@
     "id": "quench",
     "type": "requirement",
     "//": "Quenching hot metal items",
-     "tools": [ [ [ "water", 1 ], [ "water_clean", 1 ] ], [ [ "metal_tank", -1 ] ] ]
-   }
-  ]
+    "tools": [ [ [ "water", 1 ], [ "water_clean", 1 ] ], [ [ "metal_tank", -1 ] ] ]
+  }
+]
