@@ -1986,7 +1986,7 @@
     "type": "ITEM",
     "id": "warhammer",
     "name": { "str": "war hammer" },
-    "description": "A medieval hammer with a spike on one end, made for battle.  Its odd shape and balance make it an excellent weapon, but an ineffective tool. This one is custom-made with medium steel which is passable, but hardly the pinnacle of weapon making.",
+    "description": "A medieval hammer with a spike on one end, made for battle.  Its odd shape and balance make it an excellent weapon, but an ineffective tool.  This one is custom-made with medium steel which is passable, but hardly the pinnacle of weapon making.",
     "weight": "1220 g",
     "price_postapoc": "60 USD",
     "color": "brown",
