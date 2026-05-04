@@ -983,6 +983,7 @@
         "name": "Tempering",
         "time": "4 h",
         "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "TEMPER", "level": 1 } ],
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
       {
@@ -1387,6 +1388,7 @@
         "name": "Tempering",
         "time": "4 h",
         "activity_level": "LIGHT_EXERCISE",
+        "qualities": [ { "id": "TEMPER", "level": 1 } ],
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
       {
@@ -2170,6 +2172,7 @@
         "name": "Tempering",
         "time": "4 h 30 m",
         "activity_level": "NO_EXERCISE",
+        "qualities": [ { "id": "TEMPER", "level": 1 } ],
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
       {
@@ -2412,6 +2415,7 @@
         "name": "Tempering",
         "time": "4 h",
         "activity_level": "NO_EXERCISE",
+        "qualities": [ { "id": "TEMPER", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
       {
@@ -2790,6 +2794,7 @@
         "name": "Tempering",
         "time": "4 h",
         "activity_level": "NO_EXERCISE",
+        "qualities": [ { "id": "TEMPER", "level": 1 } ],
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
       {
