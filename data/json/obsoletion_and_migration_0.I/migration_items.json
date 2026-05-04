@@ -2802,5 +2802,10 @@
     "type": "MIGRATION",
     "id": "bot_molebot",
     "replace": "pickaxe"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "mc_warhammer",
+    "replace": "warhammer"
   }
 ]
