@@ -2807,5 +2807,10 @@
     "type": "MIGRATION",
     "id": "mc_warhammer",
     "replace": "warhammer"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "mc_mace",
+    "replace": "mace"
   }
 ]

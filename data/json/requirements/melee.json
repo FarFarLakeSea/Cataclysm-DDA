@@ -599,7 +599,7 @@
       [
         [ "mace", -1 ],
         [ "lc_mace", -1 ],
-        [ "mc_mace", -1 ],
+        [ "mace", -1 ],
         [ "hc_mace", -1 ],
         [ "ch_mace", -1 ],
         [ "qt_mace", -1 ],
