@@ -2301,12 +2301,12 @@
     "skill_used": "fabrication",
     "difficulty": 9,
     "book_learn": [ [ "textbook_weapwest", 8 ] ],
-    "using": [ [ "blacksmithing_standard", 8 ], [ "mc_steel_standard", 2 ], [ "quench", 120 ] ],
-    "components": [ [ [ "scrap_kevlar", 2 ], [ "plastic_chunk", 1 ] ], [ [  ] ] ],
+    "using": [ [ "blacksmithing_standard", 8 ], [ "mc_steel_standard", 3 ], [ "quench", 120 ] ],
+    "components": [ [ [ "scrap_kevlar", 2 ], [ "plastic_chunk", 1 ] ] ],
     "byproducts": [ [ [ "water", 120 ] ] ],
     "steps": [
       {
-        "name": "Forge welding steel for the blade, tang, and hilt",
+        "name": "Forge welding steel for the blade, tang, pommel and hilt",
         "time": "55 m",
         "activity_level": "BRISK_EXERCISE",
         "tools": [ [ [ "hotcut_any", -1 ] ] ],
@@ -2352,9 +2352,10 @@
         "qualities": [ { "id": "FILE", "level": 2 } ]
       },
       {
-        "name": "Assembling the hilt, wrapping the grip, and binding it with wire",
+        "name": "Assembling the hilt, attaching pommel, wrapping the grip, and binding it with wire",
         "time": "1 h",
         "activity_level": "MODERATE_EXERCISE",
+        "tools": [ [ [ "hammer", -1 ] ] ],
         "proficiencies": [ { "proficiency": "prof_metalworking" } ]
       }
     ]
@@ -2367,12 +2368,12 @@
     "skill_used": "fabrication",
     "difficulty": 10,
     "book_learn": [ [ "textbook_weapwest", 8 ] ],
-    "using": [ [ "blacksmithing_standard", 8 ], [ "mc_steel_standard", 2 ], [ "quench", 120 ] ],
+    "using": [ [ "blacksmithing_standard", 8 ], [ "mc_steel_standard", 3 ], [ "quench", 120 ] ],
     "components": [ [ [ "scrap_kevlar", 2 ], [ "plastic_chunk", 1 ] ] ],
     "byproducts": [ [ [ "water", 120 ] ] ],
     "steps": [
       {
-        "name": "Forge welding steel for the blade, tang, and hilt",
+        "name": "Forge welding steel for the blade, tang, pommel and hilt",
         "time": "1 h 10 m",
         "activity_level": "BRISK_EXERCISE",
         "tools": [ [ [ "hotcut_any", -1 ] ] ],
@@ -2431,9 +2432,10 @@
         "qualities": [ { "id": "FILE", "level": 2 } ]
       },
       {
-        "name": "Assembling the hilt, wrapping the grip, and binding it with wire",
+        "name": "Assembling the hilt, attaching pommel, wrapping the grip, and binding it with wire",
         "time": "1 h",
         "activity_level": "MODERATE_EXERCISE",
+        "tools": [ [ [ "hammer", -1 ] ] ],
         "proficiencies": [ { "proficiency": "prof_metalworking" } ]
       }
     ]
