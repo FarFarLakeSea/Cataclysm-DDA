@@ -2418,9 +2418,10 @@
         "proficiencies": [ { "proficiency": "prof_blacksmithing" } ]
       },
       {
-        "name": "Tempering to spring temper",
+        "name": "Tempering to a spring temper",
         "time": "4 h 30 m",
         "activity_level": "NO_EXERCISE",
+        "qualities": [ { "id": "TEMPER", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_tempering" } ]
       },
       {
