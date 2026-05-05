@@ -231,12 +231,6 @@
         "proficiencies": [ { "proficiency": "prof_bladesmith" }, { "proficiency": "prof_metalworking" } ]
       },
       {
-        "name": "Hardening and tempering the thin blade",
-        "time": "1 h",
-        "activity_level": "NO_EXERCISE",
-        "proficiencies": [ { "proficiency": "prof_hardening" }, { "proficiency": "prof_tempering" } ]
-      },
-      {
         "name": "Sawing, shaping, and carefully hollowing out the wooden cane body",
         "time": "3 h",
         "activity_level": "ACTIVE_EXERCISE",
@@ -1253,12 +1247,6 @@
     "skill_used": "fabrication",
     "difficulty": 8,
     "autolearn": true,
-    "proficiencies": [
-      { "proficiency": "prof_metalworking" },
-      { "proficiency": "prof_blacksmithing" },
-      { "proficiency": "prof_bladesmith" },
-      { "proficiency": "prof_tempering" }
-    ],
     "using": [ [ "blacksmithing_standard", 4 ], [ "mc_steel_standard", 1 ] ],
     "byproducts": [ [ "water", 120 ] ],
     "steps": [
