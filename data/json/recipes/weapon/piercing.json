@@ -2365,7 +2365,7 @@
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "skill_used": "fabrication",
-    "difficulty": 9,
+    "difficulty": 10,
     "book_learn": [ [ "textbook_weapwest", 8 ] ],
     "using": [ [ "blacksmithing_standard", 8 ], [ "mc_steel_standard", 2 ], [ "quench", 120 ] ],
     "components": [ [ [ "scrap_kevlar", 2 ], [ "plastic_chunk", 1 ] ] ],
@@ -2400,7 +2400,7 @@
       },
       {
         "name": "Rough grinding the blade",
-        "time": "2 h",
+        "time": "2 h 30 m",
         "activity_level": "BRISK_EXERCISE",
         "qualities": [ { "id": "GRIND", "level": 2 } ],
         "proficiencies": [ { "proficiency": "prof_bladesmith" }, { "proficiency": "prof_metalworking" } ]
