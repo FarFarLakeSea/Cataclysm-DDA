@@ -544,16 +544,8 @@
     "melee_damage": { "stab": 21 }
   },
   {
-    "id": "knife_rambo",
-    "copy-from": "mc_knife_rambo",
-    "type": "ITEM",
-    "name": { "str": "survival knife", "str_pl": "survival knives" },
-    "description": "This massive knife features a hollow handle with a compass built into the pommel and a row of fearsome-looking saw teeth along the back of its blade.",
-    "replace_materials": { "mc_steel": "steel" }
-  },
-  {
     "id": "lc_knife_rambo",
-    "copy-from": "mc_knife_rambo",
+    "copy-from": "knife_rambo",
     "looks_like": "knife_rambo",
     "type": "ITEM",
     "name": { "str": "mild steel survival knife", "str_pl": "mild steel survival knives" },
@@ -565,13 +557,12 @@
     "relative": { "melee_damage": { "stab": -1 } }
   },
   {
-    "id": "mc_knife_rambo",
-    "looks_like": "knife_rambo",
+    "id": "knife_rambo",
     "type": "ITEM",
     "category": "weapons",
     "name": { "str": "medium steel survival knife", "str_pl": "medium steel survival knives" },
     "//": "This isn't really supposed to be a very good knife, or a very good saw.  It's more for looking scary.",
-    "description": "This massive knife features a hollow handle with a compass built into the pommel and a row of fearsome-looking saw teeth along the back of its blade.  Made of medium steel, this is about as good as store bought.",
+    "description": "This massive knife features a hollow handle with a compass built into the pommel and a row of fearsome-looking saw teeth along the back of its blade.",
     "weight": "422 g",
     "volume": "344 ml",
     "longest_side": "36 cm",
@@ -602,7 +593,7 @@
   },
   {
     "id": "hc_knife_rambo",
-    "copy-from": "mc_knife_rambo",
+    "copy-from": "knife_rambo",
     "looks_like": "knife_rambo",
     "type": "ITEM",
     "name": { "str": "high steel survival knife", "str_pl": "high steel survival knives" },
@@ -613,7 +604,7 @@
   },
   {
     "id": "ch_knife_rambo",
-    "copy-from": "mc_knife_rambo",
+    "copy-from": "knife_rambo",
     "looks_like": "knife_rambo",
     "type": "ITEM",
     "name": { "str": "hardened steel survival knife", "str_pl": "hardened steel survival knives" },
@@ -624,7 +615,7 @@
   },
   {
     "id": "qt_knife_rambo",
-    "copy-from": "mc_knife_rambo",
+    "copy-from": "knife_rambo",
     "looks_like": "knife_rambo",
     "type": "ITEM",
     "name": { "str": "tempered steel survival knife", "str_pl": "tempered steel survival knives" },
