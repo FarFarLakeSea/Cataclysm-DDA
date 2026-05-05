@@ -1967,7 +1967,7 @@
     "book_learn": [ [ "manual_knives", 5 ], [ "recipe_melee", 6 ] ],
     "using": [ [ "blacksmithing_standard", 8 ], [ "mc_steel_standard", 2 ], [ "quench", 120 ] ],
     "components": [ [ [ "2x4", 1 ], [ "stick", 1 ] ] ],
-    "byproducts": [ [  "water", 120 ] ],
+    "byproducts": [ [ "water", 120 ] ],
     "steps": [
       {
         "name": "Forge welding and cutting steel for the blade, tang, and guard",
