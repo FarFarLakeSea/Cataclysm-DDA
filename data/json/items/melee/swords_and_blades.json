@@ -671,17 +671,8 @@
     "weapon_category": [ "SHIVS" ]
   },
   {
-    "id": "knife_trench",
-    "copy-from": "mc_knife_trench",
-    "type": "ITEM",
-    "subtypes": [ "TOOL" ],
-    "name": { "str": "trench knife", "str_pl": "trench knives" },
-    "description": "This stout combat knife features a steel guard to protect the user's knuckles.  The guard can also be used for striking or blocking.",
-    "replace_materials": { "mc_steel": "steel" }
-  },
-  {
     "id": "lc_knife_trench",
-    "copy-from": "mc_knife_trench",
+    "copy-from": "knife_trench",
     "looks_like": "knife_trench",
     "type": "ITEM",
     "subtypes": [ "TOOL" ],
@@ -694,11 +685,10 @@
     "relative": { "melee_damage": { "stab": -2 } }
   },
   {
-    "id": "mc_knife_trench",
+    "id": "knife_trench",
     "type": "ITEM",
     "subtypes": [ "TOOL" ],
     "category": "weapons",
-    "looks_like": "knife_trench",
     "name": { "str": "medium steel trench knife", "str_pl": "medium steel trench knives" },
     "description": "This stout combat knife features a steel guard to protect the user's knuckles.  The guard can also be used for striking or blocking.  This one is made of medium steel and is about shop quality.",
     "weight": "530 g",
@@ -720,7 +710,7 @@
   },
   {
     "id": "hc_knife_trench",
-    "copy-from": "mc_knife_trench",
+    "copy-from": "knife_trench",
     "looks_like": "knife_trench",
     "type": "ITEM",
     "subtypes": [ "TOOL" ],
@@ -732,7 +722,7 @@
   },
   {
     "id": "ch_knife_trench",
-    "copy-from": "mc_knife_trench",
+    "copy-from": "knife_trench",
     "looks_like": "knife_trench",
     "type": "ITEM",
     "subtypes": [ "TOOL" ],
@@ -744,7 +734,7 @@
   },
   {
     "id": "qt_knife_trench",
-    "copy-from": "mc_knife_trench",
+    "copy-from": "knife_trench",
     "looks_like": "knife_trench",
     "type": "ITEM",
     "subtypes": [ "TOOL" ],
