@@ -417,5 +417,16 @@
     "volume": "43793 ml",
     "price": "20000 USD",
     "price_postapoc": "100 USD 50 cent"
+  },
+  {
+    "id": "balloon_burner",
+    "type": "ITEM",
+    "subtypes": [ "ENGINE" ],
+    "name": { "str": "hot air balloon burner" },
+    "description": "A hot air balloon burner.  Operating this outside of its intended use would be a bad idea.",
+    "weight": "12 kg",
+    "volume": "7500 ml",
+    "price": "100 USD",
+    "price_postapoc": "5 USD"
   }
 ]
