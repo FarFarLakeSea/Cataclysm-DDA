@@ -2265,9 +2265,12 @@ bool monster::move_to( const tripoint_bub_ms &p, bool force,
     // the player is consistent even if the monster stumbles, and the same
     // regardless of the distance measurement mode. Note: Keep this as float here
     // or else it will cancel valid moves
-    const float cost =
-        stagger_adjustment *
+    const float raw_cost =
         static_cast<float>( calc_movecost( here, pos, destination, force ) );
+    float cost = raw_cost * stagger_adjustment;
+    if( stagger_adjustment < 1.0f && raw_cost > 100.0f ) {
+        cost = stagger_adjustment * 100.0f + ( raw_cost - 100.0f );
+    }
     if( cost > 0.0f ) {
         mod_moves( -static_cast<int>( std::ceil( cost ) ) );
     } else {

@@ -1304,3 +1304,221 @@ TEST_CASE( "dormant_zombie_places_corpse_and_trap", "[monster][map]" )
     // The monster count should have dropped by one since it destroyed itself.
     CHECK( g->num_creatures() == 1 );
 }
+
+namespace
+{
+
+const ter_str_id ter_test_rock( "t_rock" );
+const ter_str_id
+ter_test_pit( "t_pit_shallow" ); //the z was bashing the shrub -_-. just replace shrub with pit in your mind down below
+
+int raw_terrain_movecost( const map &here, const tripoint_bub_ms &from,
+                          const tripoint_bub_ms &to )
+{
+    return ( here.move_cost( from ) + here.move_cost( to ) ) * 25;
+}
+
+monster &spawn_test_chaser( const std::string &mon_id, int speed,
+                            const tripoint_bub_ms &z_start,
+                            const tripoint_bub_ms &goal )
+{
+    map &here = get_map();
+    monster &z = spawn_test_monster( mon_id, z_start );
+    for( const auto &sp : z.type->special_attacks ) {
+        z.disable_special( sp.first );
+    }
+    z.set_speed_base( speed );
+    z.set_moves( 0 );
+    z.set_dest( here.get_abs( goal ) );
+    REQUIRE( z.get_speed() == speed );
+    return z;
+}
+
+void block_direct_east_neighbors( map &here, const tripoint_bub_ms &z_start, const monster &z )
+{
+    const std::array<tripoint_bub_ms, 3> rocks = { {
+            z_start + tripoint_rel_ms( 1, -1, 0 ),
+            z_start + tripoint_rel_ms( 1, 0, 0 ),
+            z_start + tripoint_rel_ms( 1, 1, 0 )
+        }
+    };
+    for( const tripoint_bub_ms &p : rocks ) {
+        here.ter_set( p, ter_test_rock );
+    }
+    here.invalidate_map_cache( 0 );
+    here.build_map_cache( 0, true );
+    for( const tripoint_bub_ms &p : rocks ) {
+        REQUIRE( here.bash_rating( z.bash_estimate(), p ) <= 0 );
+    }
+}
+
+void check_forced_off_axis_shrub_step( bool use_trigdist, bool start_on_shrub )
+{
+    clear_map_and_put_player_underground();
+    restore_on_out_of_scope<bool> restore_trigdist( trigdist );
+    override_option opt( "CIRCLEDIST", use_trigdist ? "true" : "false" );
+    trigdist = use_trigdist;
+
+    map &here = get_map();
+    const tripoint_bub_ms z_start( 15, 15, 0 );
+    const tripoint_bub_ms goal( 25, 17, 0 );
+    const tripoint_bub_ms forced_step( 15, 16, 0 );
+
+    monster &z = spawn_test_chaser( "mon_zombie", 70, z_start, goal );
+
+    // Block all three east neighbors (16, 14), (16, 15), (16, 16) so the only closer tile
+    // is the off-axis south tile (15, 16).
+    here.ter_set( forced_step, ter_test_pit );
+    if( start_on_shrub ) {
+        here.ter_set( z_start, ter_test_pit );
+    }
+    REQUIRE( here.move_cost( forced_step ) >= 4 );
+    REQUIRE( here.bash_rating( z.bash_estimate(), forced_step ) <= 0 );
+    block_direct_east_neighbors( here, z_start, z );
+
+    const int raw_cost = raw_terrain_movecost( here, z_start, forced_step );
+    const int penalty = raw_cost - 100;
+    REQUIRE( penalty > 0 );
+
+    constexpr int initial_moves = 1000;
+    z.set_moves( initial_moves );
+    z.move();
+    CAPTURE( z.get_moves() );
+    REQUIRE( z.pos_bub( here ) == forced_step );
+    const int spent = initial_moves - z.get_moves();
+
+    CAPTURE( use_trigdist, start_on_shrub, raw_cost, penalty, spent );
+    // Stagger scaling may discount the 100-move base step, never the terrain penalty itself.
+    CHECK( spent >= penalty + 1 );
+    CHECK( spent <= raw_cost );
+}
+
+void check_mixed_terrain_enter_and_exit( bool use_trigdist )
+{
+    clear_map_and_put_player_underground();
+    restore_on_out_of_scope<bool> restore_trigdist( trigdist );
+    override_option opt( "CIRCLEDIST", use_trigdist ? "true" : "false" );
+    trigdist = use_trigdist;
+
+    map &here = get_map();
+    const tripoint_bub_ms z_start( 15, 15, 0 );  // t_grass
+    const tripoint_bub_ms shrub_tile( 15, 16, 0 ); // t_shrub (pit) (400 movecost)
+    const tripoint_bub_ms exit_tile( 16, 17, 0 ); // t_grass
+    const tripoint_bub_ms goal( 25, 16, 0 );
+
+    monster &z = spawn_test_chaser( "mon_zombie", 70, z_start, goal );
+
+    // Rocks at (16, 14), (16, 15), (16, 16) force an exact 2-step mixed-terrain path:
+    //   Step 1: (15, 15) [grass] -> (15, 16) [shrub] (only closer tile)
+    //   Step 2: (15, 16) [shrub] -> (16, 17) [grass] (only closer tile, since goal is on y=16)
+    here.ter_set( shrub_tile, ter_test_pit );
+    block_direct_east_neighbors( here, z_start, z );
+
+    const int raw_enter = raw_terrain_movecost( here, z_start, shrub_tile ); // 250 (penalty 150)
+    const int raw_exit = raw_terrain_movecost( here, shrub_tile, exit_tile ); // 250 (penalty 150)
+    const int total_penalty = ( raw_enter - 100 ) + ( raw_exit - 100 );    // 300
+    REQUIRE( total_penalty == 300 );
+
+    constexpr int initial_moves = 1000;
+
+    z.set_moves( initial_moves );
+    z.move();
+    REQUIRE( z.pos_bub( here ) == shrub_tile );
+    const int enter_spent = initial_moves - z.get_moves();
+
+    z.set_moves( initial_moves );
+    z.move();
+    REQUIRE( z.pos_bub( here ) == exit_tile );
+    const int exit_spent = initial_moves - z.get_moves();
+
+    const int total_spent = enter_spent + exit_spent;
+    const double goal_dist_closed = use_trigdist
+                                    ? ( trig_dist( z_start, goal ) - trig_dist( exit_tile, goal ) )
+                                    : static_cast<double>( rl_dist( z_start, goal ) - rl_dist( exit_tile, goal ) );
+    const int min_expected_total =
+        static_cast<int>( std::floor( goal_dist_closed * 100.0 ) ) + total_penalty;
+
+    CAPTURE( use_trigdist, enter_spent, exit_spent, total_spent,
+             goal_dist_closed, total_penalty, min_expected_total );
+    // Entering and exiting a single 400-move shrub back onto flat grass cannot telescope away
+    // the 300-move shrub penalty.
+    CHECK( enter_spent >= ( raw_enter - 100 ) + 1 );
+    CHECK( exit_spent >= ( raw_exit - 100 ) + 1 );
+    CHECK( total_spent >= min_expected_total );
+}
+
+struct terrain_chase_result {
+    int total_steps = 0;
+    int rough_steps = 0;
+    int max_steps_in_turn = 0;
+    int min_rough_step_cost = INT_MAX;
+    int max_penalty_skipped = 0; // max((raw_cost - 100) + 1 - spent); must be <= 0
+    int total_step_moves = 0;
+    int total_terrain_penalty = 0;
+    double goal_dist_closed = 0.0;
+};
+
+terrain_chase_result run_terrain_chase( monster &z, const tripoint_bub_ms &goal,
+                                        int num_turns, bool use_trigdist )
+{
+    map &here = get_map();
+    const tripoint_bub_ms z_start = z.pos_bub( here );
+    terrain_chase_result r;
+
+    for( int t = 0; t < num_turns && rl_dist( z.pos_bub( here ), goal ) > 2; ++t ) {
+        z.mod_moves( z.get_speed() );
+        int steps_this_turn = 0;
+        int iter_guard = 0;
+        while( z.get_moves() > 0 && !z.is_dead() && rl_dist( z.pos_bub( here ), goal ) > 1 ) {
+            REQUIRE( ++iter_guard < 50 );
+            const tripoint_bub_ms before = z.pos_bub( here );
+            const int moves_before = z.get_moves();
+            z.move();
+            const tripoint_bub_ms after = z.pos_bub( here );
+            if( after != before ) {
+                const int spent = moves_before - z.get_moves();
+                const int raw_cost = raw_terrain_movecost( here, before, after );
+                const int penalty = std::max( 0, raw_cost - 100 );
+                ++r.total_steps;
+                ++steps_this_turn;
+                r.total_step_moves += spent;
+                r.total_terrain_penalty += penalty;
+                if( penalty > 0 ) {
+                    ++r.rough_steps;
+                    r.min_rough_step_cost = std::min( r.min_rough_step_cost, spent );
+                    r.max_penalty_skipped = std::max( r.max_penalty_skipped, ( penalty + 1 ) - spent );
+                }
+            }
+        }
+        r.max_steps_in_turn = std::max( r.max_steps_in_turn, steps_this_turn );
+    }
+
+    REQUIRE_FALSE( z.is_dead() );
+    const tripoint_bub_ms z_end = z.pos_bub( here );
+    r.goal_dist_closed = use_trigdist
+                         ? ( trig_dist( z_start, goal ) - trig_dist( z_end, goal ) )
+                         : static_cast<double>( rl_dist( z_start, goal ) - rl_dist( z_end, goal ) );
+    return r;
+}
+}
+
+TEST_CASE( "stagger_adjustment does not discount terrain penalties", "[speed][monster]" )
+{
+    SECTION( "deterministic off-axis shrub step - trigdist enabled" ) {
+        check_forced_off_axis_shrub_step( true, false ); // t_grass -> t_shrub (raw 250, penalty 150)
+        check_forced_off_axis_shrub_step( true, true ); // t_shrub -> t_shrub (raw 400, penalty 300)
+    }
+
+    SECTION( "deterministic off-axis shrub step - trigdist disabled" ) {
+        check_forced_off_axis_shrub_step( false, false ); // t_grass -> t_shrub (raw 250, penalty 150)
+        check_forced_off_axis_shrub_step( false, true ); // t_shrub -> t_shrub (raw 400, penalty 300)
+    }
+
+    SECTION( "mixed terrain enter and exit (t_grass -> t_shrub -> t_grass) - trigdist enabled" ) {
+        check_mixed_terrain_enter_and_exit( true );
+    }
+
+    SECTION( "mixed terrain enter and exit (t_grass -> t_shrub -> t_grass) - trigdist disabled" ) {
+        check_mixed_terrain_enter_and_exit( false );
+    }
+}
