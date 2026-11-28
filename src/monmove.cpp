@@ -2268,6 +2268,8 @@ bool monster::move_to( const tripoint_bub_ms &p, bool force,
     const float raw_cost =
         static_cast<float>( calc_movecost( here, pos, destination, force ) );
     float cost = raw_cost * stagger_adjustment;
+    // Stagger discounting should only scale the 100-move base step, not terrain/obstacle
+    // penalties, while diagonal scaling (> 1.0f) still applies to the full cost.
     if( stagger_adjustment < 1.0f && raw_cost > 100.0f ) {
         cost = stagger_adjustment * 100.0f + ( raw_cost - 100.0f );
     }
