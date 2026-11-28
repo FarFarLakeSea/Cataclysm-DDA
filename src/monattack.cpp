@@ -3424,28 +3424,31 @@ bool mattack::parrot( monster *z )
 
 bool mattack::parrot_at_danger( monster *parrot )
 {
-    const map &here = get_map();
+    if (parrot->get_turns_since_target() > 0 || !one_in(20)) {
+        return false;
+    }
 
-    Creature *other = get_creature_tracker().find_reachable( *parrot, [parrot,
-    &here]( Creature * creature ) {
-        if( !creature->is_hallucination() && one_in( 20 ) ) {
-            if( creature->is_avatar() || creature->is_npc() ) {
-                Character *character = creature->as_character();
-                return character->attitude_to( *parrot ) == Creature::Attitude::HOSTILE &&
-                       parrot->sees( here, *character );
-            } else {
-                monster *monster = creature->as_monster();
-                return ( monster->faction->attitude( parrot->faction ) == mf_attitude::MFA_HATE ||
-                         ( monster->anger > 0 &&
-                           monster->faction->attitude( parrot->faction ) == mf_attitude::MFA_BY_MOOD ) ) &&
-                       parrot->sees( here, *monster );
-            }
+    const map& here = get_map();
+    const auto is_visible_danger = [parrot, &here](Creature* creature) {
+        if (creature == nullptr || creature->is_hallucination()) {
+            return false;
+        }
+        if (Character* character = creature->as_character()) {
+            return character->attitude_to(*parrot) == Creature::Attitude::HOSTILE &&
+                parrot->sees(here, *character);
+        }
+        if (monster* other = creature->as_monster()) {
+            const mf_attitude att = other->faction->attitude(parrot->faction);
+            return (att == mf_attitude::MFA_HATE ||
+                (other->anger > 0 && att == mf_attitude::MFA_BY_MOOD)) &&
+                parrot->sees(here, *other);
         }
         return false;
-    } );
+        };
 
-    if( other ) {
-        parrot_common( parrot );
+    if (is_visible_danger(parrot->attack_target()) ||
+        get_creature_tracker().find_reachable(*parrot, is_visible_danger) != nullptr) {
+        parrot_common(parrot);
         return true;
     }
 

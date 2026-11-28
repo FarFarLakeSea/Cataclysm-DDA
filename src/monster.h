@@ -434,6 +434,8 @@ class monster : public Creature
         bool can_attack_high() const override; // Can we attack upper limbs?
         int get_grab_strength() const; // intensity of grabbed effect
 
+        int get_turns_since_target() const;
+
         void add_grab( bodypart_str_id bp );
         void remove_grab( bodypart_str_id bp );
         bool is_grabbing( bodypart_str_id bp );

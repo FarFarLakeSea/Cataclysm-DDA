@@ -1304,3 +1304,182 @@ TEST_CASE( "dormant_zombie_places_corpse_and_trap", "[monster][map]" )
     // The monster count should have dropped by one since it destroyed itself.
     CHECK( g->num_creatures() == 1 );
 }
+
+#include "pathfinding.h"
+#include "game.h"
+#include "player_helpers.h"
+
+namespace
+{
+
+    struct scoped_trigdist {
+        bool prev;
+        explicit scoped_trigdist(bool value) : prev(trigdist) {
+            trigdist = value;
+        }
+        ~scoped_trigdist() {
+            trigdist = prev;
+        }
+    };
+
+    void setup_flat_arena(monster*& z_out, const std::string& mon_id,
+        const tripoint_bub_ms& z_start, const tripoint_bub_ms& p_start)
+    {
+        clear_avatar();
+        calendar::turn = calendar::turn_zero + 12_hours;
+        g->reset_light_level();
+        clear_map();
+        map& here = get_map();
+        here.invalidate_map_cache(0);
+        here.build_map_cache(0);
+
+        monster& z = spawn_test_monster(mon_id, z_start);
+        for (const auto& sp : z.type->special_attacks) {
+            z.disable_special(sp.first);
+        }
+        z.set_moves(0);
+
+        avatar& u = get_avatar();
+        u.setpos(here, p_start);
+        here.update_visibility_cache(0);
+        REQUIRE(z.sees(here, u));
+        z_out = &z;
+    }
+
+    struct kite_result {
+        int steps = 0;
+        int min_step_cost = INT_MAX;
+        int max_steps_in_turn = 0;
+        int total_step_moves = 0;
+        double total_actual_dist = 0.0;
+        double net_displacement = 0.0;
+        double final_dist_to_player = 0.0;
+        double effective_travel_speed = 0.0;
+    };
+
+    kite_result run_lateral_kite(const std::string& mon_id, int speed_override,
+        int num_turns, int player_step_every_n_turns,
+        const std::string& fill_ter)
+    {
+        scoped_trigdist guard(true);
+        map& here = get_map();
+        const tripoint_bub_ms z_start(15, 15, 0);
+        tripoint_bub_ms p_pos(21, 15, 0);
+
+        monster* z = nullptr;
+        setup_flat_arena(z, mon_id, z_start, p_pos);
+        if (speed_override > 0) {
+            z->set_speed_base(speed_override);
+        }
+        REQUIRE(z->get_speed() == 70);
+
+        if (!fill_ter.empty()) {
+            const ter_id tid(fill_ter);
+            for (int x = 10; x <= 40; ++x) {
+                for (int y = 10; y <= 65; ++y) {
+                    here.ter_set(tripoint_bub_ms(x, y, 0), tid);
+                }
+            }
+            here.invalidate_map_cache(0);
+            here.build_map_cache(0);
+            here.update_visibility_cache(0);
+        }
+
+        const double expected_ortho_cost = here.move_cost(z_start) * 50.0;
+        avatar& u = get_avatar();
+        REQUIRE(z->sees(here, u));
+
+        kite_result r;
+        for (int t = 0; t < num_turns; ++t) {
+            if (t % player_step_every_n_turns == 0) {
+                p_pos.y() += 1;
+                u.setpos(here, p_pos);
+            }
+            z->mod_moves(z->get_speed());
+
+            int steps_this_turn = 0;
+            while (z->get_moves() > 0 && !z->is_dead() && rl_dist(z->pos_bub(here), p_pos) > 1) {
+                const tripoint_bub_ms before = z->pos_bub(here);
+                const int moves_before = z->get_moves();
+                z->plan();
+                z->move();
+                const tripoint_bub_ms after = z->pos_bub(here);
+                if (after != before) {
+                    const int spent = moves_before - z->get_moves();
+                    ++steps_this_turn;
+                    ++r.steps;
+                    r.min_step_cost = std::min(r.min_step_cost, spent);
+                    r.total_step_moves += spent;
+                    r.total_actual_dist += trig_dist(before, after);
+                }
+            }
+            r.max_steps_in_turn = std::max(r.max_steps_in_turn, steps_this_turn);
+        }
+
+        const tripoint_bub_ms z_end = z->pos_bub(here);
+        r.net_displacement = trig_dist(z_start, z_end);
+        r.final_dist_to_player = trig_dist(z_end, p_pos);
+        if (r.total_step_moves > 0) {
+            r.effective_travel_speed =
+                z->get_speed() * (r.total_actual_dist * expected_ortho_cost) / r.total_step_moves;
+        }
+        return r;
+    }
+
+}
+
+TEST_CASE("get_stagger_adjust movement cost bugs", "[zombie_speed_bug]")
+{
+    SECTION("trigdist disabled - diagonal chase 1-move stumble bug") {
+        scoped_trigdist guard(false);
+        map& here = get_map();
+        monster* z = nullptr;
+        const tripoint_bub_ms z_start(15, 15, 0);
+        const tripoint_bub_ms p_pos(45, 45, 0);
+        setup_flat_arena(z, "mon_zombie", z_start, p_pos);
+
+        int min_step_cost = INT_MAX;
+        int max_steps_in_turn = 0;
+        for (int t = 0; t < 30 && rl_dist(z->pos_bub(here), p_pos) > 2; ++t) {
+            z->mod_moves(z->get_speed());
+            int steps_this_turn = 0;
+            while (z->get_moves() > 0 && !z->is_dead() && rl_dist(z->pos_bub(here), p_pos) > 1) {
+                const tripoint_bub_ms before = z->pos_bub(here);
+                const int moves_before = z->get_moves();
+                z->plan();
+                z->move();
+                if (z->pos_bub(here) != before) {
+                    ++steps_this_turn;
+                    min_step_cost = std::min(min_step_cost, moves_before - z->get_moves());
+                }
+            }
+            max_steps_in_turn = std::max(max_steps_in_turn, steps_this_turn);
+        }
+
+        CAPTURE(min_step_cost, max_steps_in_turn);
+        // Currently fails with min_step_cost == 1, max_steps_in_turn == 3
+        CHECK(min_step_cost >= 50);
+        CHECK(max_steps_in_turn <= 1);
+    }
+
+    SECTION("flat grass lateral kite - stumbling vs non-stumbling 70-speed control") {
+        const kite_result zed = run_lateral_kite("mon_zombie", 0, 40, 1, "");
+        const kite_result control = run_lateral_kite("mon_mi_go", 70, 40, 1, "");
+
+        CAPTURE(zed.min_step_cost, zed.net_displacement, zed.final_dist_to_player,
+            zed.effective_travel_speed);
+        CAPTURE(control.min_step_cost, control.net_displacement, control.final_dist_to_player,
+            control.effective_travel_speed);
+        // Currently fails: zed ends at 14.04 vs control at 15.30 (travel speed 86.5 vs 70.0)
+        CHECK(zed.final_dist_to_player >= control.final_dist_to_player - 0.5);
+    }
+
+    SECTION("t_shrub (400-move) lateral kite - terrain penalty discount") {
+        const kite_result zed = run_lateral_kite("mon_zombie", 0, 120, 4, "t_shrub");
+
+        CAPTURE(zed.min_step_cost, zed.max_steps_in_turn, zed.effective_travel_speed);
+        // Currently fails with min_step_cost == 25, max_steps_in_turn == 2
+        CHECK(zed.min_step_cost >= 400);
+        CHECK(zed.max_steps_in_turn <= 1);
+    }
+}

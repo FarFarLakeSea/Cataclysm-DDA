@@ -2916,6 +2916,10 @@ int monster::get_grab_strength() const
     return type->grab_strength;
 }
 
+int monster::get_turns_since_target() const {
+    return turns_since_target;
+}
+
 void monster::add_grab( bodypart_str_id bp )
 {
     add_effect( effect_grabbing, 1_days, true, 1 );
